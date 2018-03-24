@@ -1,13 +1,13 @@
 version: '3'
 services:
-    sender:
+    publisher:
         build: .
         volumes:
             - ./publisher/target:/home/zmq
         command: ["java", "-jar", "/home/zmq/publisher.jar"]
 
 
-    receiver:
+    subscriber:
         build: .
         volumes:
             - ./subscriber/target:/home/zmq
@@ -15,4 +15,4 @@ services:
         ports:
           - 5555:5555
         links:
-          - sender
+          - publisher

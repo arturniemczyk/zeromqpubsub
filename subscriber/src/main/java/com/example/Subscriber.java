@@ -19,7 +19,7 @@ public class Subscriber implements CommandLineRunner
         ZMQ.Context context = ZMQ.context(1);
         ZMQ.Socket subscriber = context.socket(ZMQ.SUB);
 
-        subscriber.connect("tcp://sender:5555");
+        subscriber.connect("tcp://publisher:5555");
         subscriber.subscribe("".getBytes());
 
         while (!Thread.currentThread ().isInterrupted ()) {
