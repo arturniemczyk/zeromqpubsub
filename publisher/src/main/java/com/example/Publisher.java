@@ -29,12 +29,10 @@ public class Publisher implements CommandLineRunner {
 
             publisher.send (LocalDateTime.now().toString());
 
-            try {
-                Thread.sleep(5000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            Thread.sleep(5000);
+
         }
+
         publisher.close ();
         context.term ();
 
